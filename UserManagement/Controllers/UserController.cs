@@ -43,6 +43,16 @@ namespace UserManagement.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Logout() {
+
+            HttpContext.Session.Remove("Username");
+            HttpContext.Session.Remove("Fullname");
+            HttpContext.Session.Remove("IsLogin");
+
+            return View("User/Login");
+        }
+
         [HttpGet]
         public ActionResult Register()
         {
